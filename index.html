@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Supervisor-IPUC | Manual de Oficios Distritales</title>
+    
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Manual de Descripción y Perfil de Oficios Distritales de la Iglesia Pentecostal Unida de Colombia (IPUC)" />
+    <meta name="keywords" content="IPUC, Manual de Funciones, Oficios Distritales, Supervisor, Presbítero, Veedor" />
+    <meta name="author" content="IPUC - Departamento de Planeación y Desarrollo Organizacional" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome (íconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+    <!-- ====================================================== -->
+    <!--  LIBRERÍA PARA EXPORTAR A PDF (html2pdf.js)          -->
+    <!-- ====================================================== -->
+    <!-- UBICACIÓN: AQUÍ, en el <head>, antes de cualquier script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- ====================================================== -->
+    
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header class="main-header" role="banner">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="img/logo-ipuc.png" alt="Logo IPUC" class="logo-img" />
+                <div class="logo-text">
+                    <h1>IPUC</h1>
+                    <span>Manual de Oficios Distritales</span>
+                </div>
+            </div>
+            
+            <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" role="navigation" aria-label="Navegación principal">
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#oficios"><i class="fas fa-users"></i> Oficios</a></li>
+                    <li><a href="#organigrama"><i class="fas fa-sitemap"></i> Organigrama</a></li>
+                    <li><a href="#acerca"><i class="fas fa-info-circle"></i> Acerca de</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <!-- Botón PDF (se agregará desde pdf.js) -->
+                <button class="btn-print" id="btnPrint" title="Imprimir">
+                    <i class="fas fa-print"></i>
+                </button>
+                <button class="btn-search-toggle" id="btnSearchToggle" title="Buscar">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Barra de búsqueda -->
+        <div class="search-container" id="searchContainer" role="search">
+            <div class="search-inner">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Buscar oficio, función o requisito..." aria-label="Buscar en el manual" />
+                <button id="searchClear" aria-label="Limpiar búsqueda">&times;</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main id="main-content" role="main">
+        
+        <!-- Sección Inicio / Hero -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-banner">
+                <img src="img/banner.jpg" alt="Banner IPUC" class="hero-img" />
+                <div class="hero-overlay">
+                    <div class="hero-content">
+                        <h2>Manual de Descripción y Perfil de Oficios</h2>
+                        <p class="hero-subtitle">Directivos Distritales · Iglesia Pentecostal Unida de Colombia</p>
+                        <p class="hero-description">
+                            Este manual define las funciones, requisitos y perfiles de los oficios 
+                            que conforman la estructura distrital de la IPUC, conforme a los 
+                            lineamientos del Consistorio de Ancianos.
+                        </p>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">6</span>
+                                <span class="stat-label">Oficios</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4</span>
+                                <span class="stat-label">Niveles</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">2025</span>
+                                <span class="stat-label">Vigencia</span>
+                            </div>
+                        </div>
+                        <a href="#oficios" class="btn-primary">
+                            <i class="fas fa-chevron-down"></i> Explorar Oficios
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Oficios (Acordeón) -->
+        <section id="oficios" class="oficios-section">
+            <div class="section-header">
+                <h2><i class="fas fa-users"></i> Oficios Distritales</h2>
+                <p>Selecciona un oficio para ver su descripción completa, funciones, requisitos y recursos.</p>
+            </div>
+
+            <div class="oficios-grid" id="oficiosGrid">
+                
+                <!-- Oficio: Supervisor -->
+                <div class="oficio-card" data-oficio="supervisor">
+                    <div class="oficio-header" role="button" tabindex="0" aria-expanded="false">
+                        <div class="oficio-title">
+                            <span class="oficio-icon"><i class="fas fa-crown"></i></span>
+                            <div>
+                                <h3>Supervisor</h3>
+                                <span class="oficio-subtitle">Directivo Distrital · Nivel 4</span>
+                            </div>
+                        </div>
+                        <div class="oficio-badge">Líder</div>
+                        <span class="oficio-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    
+                    <div class="oficio-body" ="display: none;">
+                        <div class="oficio-content" id="content-supervisor"></div>
+                    </div>
+                </div>
+
+                <!-- Oficio: Presbítero A -->
+                <div class="oficio-card" data-oficio="presbitero-a">
+                    <div class="oficio-header" role="button" tabindex="0" aria-expanded="false">
+                        <div class="oficio-title">
+                            <span class="oficio-icon"><i class="fas fa-user-tie"></i></span>
+                            <div>
+                                <h3>Presbítero A</h3>
+                                <span class="oficio-subtitle">Directivo Distrital · Nivel 4</span>
+                            </div>
+                        </div>
+                        <span class="oficio-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="oficio-body" ="display: none;">
+                        <div class="oficio-content" id="content-presbitero-a"></div>
+                    </div>
+                </div>
+
+                <!-- Oficio: Presbítero B -->
+                <div class="oficio-card" data-oficio="presbitero-b">
+                    <div class="oficio-header" role="button" tabindex="0" aria-expanded="false">
+                        <div class="oficio-title">
+                            <span class="oficio-icon"><i class="fas fa-user-tie"></i></span>
+                            <div>
+                                <h3>Presbítero B</h3>
+                                <span class="oficio-subtitle">Directivo Distrital · Nivel 4</span>
+                            </div>
+                        </div>
+                        <span class="oficio-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="oficio-body" ="display: none;">
+                        <div class="oficio-content" id="content-presbitero-b"></div>
+                    </div>
+                </div>
+
+                <!-- Oficio: Presbítero Secretario Distrital -->
+                <div class="oficio-card" data-oficio="presbitero-secretario">
+                    <div class="oficio-header" role="button" tabindex="0" aria-expanded="false">
+                        <div class="oficio-title">
+                            <span class="oficio-icon"><i class="fas fa-file-alt"></i></span>
+                            <div>
+                                <h3>Presbítero Secretario Distrital</h3>
+                                <span class="oficio-subtitle">Directivo Distrital · Nivel 4</span>
+                            </div>
+                        </div>
+                        <span class="oficio-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="oficio-body" ="display: none;">
+                        <div class="oficio-content" id="content-presbitero-secretario"></div>
+                    </div>
+                </div>
+
+                <!-- Oficio: Director Distrital de Finanzas -->
+                <div class="oficio-card" data-oficio="director-finanzas">
+                    <div class="oficio-header" role="button" tabindex="0" aria-expanded="false">
+                        <div class="oficio-title">
+                            <span class="oficio-icon"><i class="fas fa-coins"></i></span>
+                            <div>
+                                <h3>Director Distrital de Finanzas</h3>
+                                <span class="oficio-subtitle">Directivo Distrital · Nivel 4</span>
+                            </div>
+                        </div>
+                        <span class="oficio-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="oficio-body" ="display: none;">
+                        <div class="oficio-content" id="content-director-finanzas"></div>
+                    </div>
+                </div>
+
+                <!-- Oficio: Veedor Distrital -->
+                <div class="oficio-card" data-oficio="veedor">
+                    <div class="oficio-header" role="button" tabindex="0" aria-expanded="false">
+                        <div class="oficio-title">
+                            <span class="oficio-icon"><i class="fas fa-eye"></i></span>
+                            <div>
+                                <h3>Veedor Distrital</h3>
+                                <span class="oficio-subtitle">Órgano de Control · Nivel 4</span>
+                            </div>
+                        </div>
+                        <span class="oficio-badge">Control</span>
+                        <span class="oficio-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="oficio-body"="display: none;">
+                        <div class="oficio-content" id="content-veedor"></div>
+                    </div>
+                </div>
+
+                <!-- Oficio: Recaudador Distrital -->
+                <div class="oficio-card" data-oficio="recaudador">
+                    <div class="oficio-header" role="button" tabindex="0" aria-expanded="false">
+                        <div class="oficio-title">
+                            <span class="oficio-icon"><i class="fas fa-hand-holding-usd"></i></span>
+                            <div>
+                                <h3>Recaudador Distrital</h3>
+                                <span class="oficio-subtitle">Apoyo Financiero · Nivel 2</span>
+                            </div>
+                        </div>
+                        <span class="oficio-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="oficio-body"="display: none;">
+                        <div class="oficio-content" id="content-recaudador"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Sección Organigrama -->
+        <section id="organigrama" class="organigrama-section">
+            <div class="section-header">
+                <h2><i class="fas fa-sitemap"></i> Organigrama de Oficios Distritales</h2>
+                <p>Estructura jerárquica y relaciones funcionales de los oficios en el distrito.</p>
+            </div>
+            
+            <div class="organigrama-container">
+                <div class="organigrama-wrapper">
+                    <img src="img/organigrama.png" alt="Organigrama de Oficios Distritales IPUC" class="organigrama-img" />
+                    
+                    <!-- Fallback en texto -->
+                    <div class="organigrama-texto">
+                        <div class="org-nivel org-nivel-1">
+                            <div class="org-item">Asamblea General</div>
+                            <div class="org-item">Consistorio de Ancianos</div>
+                            <div class="org-item">Obispo Presidente</div>
+                        </div>
+                        <div class="org-flecha">▼</div>
+                        <div class="org-nivel org-nivel-2">
+                            <div class="org-item">Supervisor</div>
+                        </div>
+                        <div class="org-flecha">▼</div>
+                        <div class="org-nivel org-nivel-3">
+                            <div class="org-item">Presbítero A</div>
+                            <div class="org-item">Presbítero B</div>
+                            <div class="org-item">Presbítero Secretario</div>
+                            <div class="org-item">Director de Finanzas</div>
+                        </div>
+                        <div class="org-linea-control">
+                            <span class="org-item org-control">Veedor Distrital</span>
+                            <span class="org-item org-control">Recaudador Distrital</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Acerca de -->
+        <section id="acerca" class="acerca-section">
+            <div class="section-header">
+                <h2><i class="fas fa-info-circle"></i> Acerca de este Manual</h2>
+            </div>
+            <div class="acerca-content">
+                <div class="acerca-card">
+                    <h3>Propósito</h3>
+                    <p>Este manual tiene como objetivo definir claramente las funciones, requisitos y perfiles de los oficios distritales de la Iglesia Pentecostal Unida de Colombia, garantizando una gestión eficiente y alineada con los principios doctrinales y organizacionales de la IPUC.</p>
+                </div>
+                <div class="acerca-card">
+                    <h3>Vigencia</h3>
+                    <p><strong>Versión 01</strong> · Abril - Mayo de 2025-2028</p>
+                    <p>Actualización del Manual de Descripción y Perfil de Oficios de la IPUC, bajo la coordinación del Departamento de Planeación y Desarrollo Organizacional del CAN.</p>
+                </div>
+                <div class="acerca-card">
+                    <h3>Responsables</h3>
+                    <ul>
+                        <li><strong>Actualización:</strong> Vivian Flórez Sierra - Coordinadora DPDO CAN</li>
+                        <li><strong>Revisión:</strong> Carlos Andrés Giraldo Tabares - Supervisor Distrito 9</li>
+                        <li><strong>Aprobación:</strong> Héctor Ariel Campuzano Fonseca - Obispo Presidente</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="main-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-col">
+                <img src="img/logo-ipuc.png" alt="Logo IPUC" class="footer-logo" />
+                <p>Iglesia Pentecostal Unida de Colombia</p>
+                <p class="footer-copy">&copy; 2025 · Todos los derechos reservados</p>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#oficios">Oficios</a></li>
+                    <li><a href="#organigrama">Organigrama</a></li>
+                    <li><a href="#acerca">Acerca de</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> dpdo@ipuc.org.co</p>
+                <p><i class="fas fa-phone"></i> +57 (1) 123 4567</p>
+            </div>
+            <div class="footer-col">
+                <h4>Documento</h4>
+                <p><i class="fas fa-file-pdf"></i> Versión 0 · 2026</p>
+                <button class="btn-print-footer" id="btnPrintFooter">
+                    <i class="fas fa-print"></i> Imprimir
+                </button>
+            </div>
+        </div>
+    </footer>
+
+       <!--  SCRIPTS DE TU PROYECTO                              -->
+      <!-- UBICACIÓN: AQUÍ, al final del body, después de todo el HTML -->
+    <script src="js/datos-oficios.js"></script>
+    <script src="js/acordeon.js"></script>
+    <script src="js/buscador.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/imprimir.js"></script>
+    <script src="js/animaciones.js"></script>
+    <!-- Librería para exportar a PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="js/pdf.js"></script>    
+    <script src="js/script.js"></script>
+      
+</body>
+</html>

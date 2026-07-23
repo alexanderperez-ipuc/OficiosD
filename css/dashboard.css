@@ -1,0 +1,138 @@
+/* ========================================
+   dashboard.css - Estilos específicos del panel
+   ======================================== */
+
+/* ---- Mini estadísticas en el header ---- */
+.dashboard-stats {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.dashboard-stats .stat-chip {
+    background: var(--color-bg);
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.dashboard-stats .stat-chip i {
+    color: var(--color-secondary);
+}
+
+/* ---- Botón de volver arriba ---- */
+.back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--color-primary);
+    color: #fff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(26, 60, 110, 0.3);
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    z-index: 999;
+}
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.back-to-top:hover {
+    background: var(--color-primary-light);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(26, 60, 110, 0.4);
+}
+.back-to-top i {
+    font-size: 1.3rem;
+}
+
+/* ---- Indicador de búsqueda ---- */
+.search-indicator {
+    display: none;
+    padding: 8px 16px;
+    background: var(--color-secondary-light);
+    color: var(--color-primary-dark);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+.search-indicator.active {
+    display: block;
+}
+
+/* ---- Selector de versión ---- */
+.version-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+.version-selector select {
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    font-family: var(--font-family);
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* ---- Etiquetas de estado ---- */
+.status-badge {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+.status-badge.active {
+    background: #22c55e;
+    color: #fff;
+}
+.status-badge.inactive {
+    background: #ef4444;
+    color: #fff;
+}
+.status-badge.pending {
+    background: var(--color-secondary);
+    color: var(--color-primary-dark);
+}
+
+/* ---- Tooltip ---- */
+.tooltip {
+    position: relative;
+    cursor: help;
+}
+.tooltip:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-primary-dark);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 400;
+    white-space: nowrap;
+    z-index: 10;
+}

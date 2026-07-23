@@ -1,0 +1,152 @@
+/* ========================================
+   print.css - Estilos para impresión
+   ======================================== */
+
+@media print {
+    /* Reset general */
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    body {
+        font-size: 11pt;
+        line-height: 1.5;
+        background: #fff;
+        color: #000;
+        margin: 0.5in;
+    }
+
+    /* Ocultar elementos no imprimibles */
+    .main-header,
+    .main-nav,
+    .menu-toggle,
+    .header-actions,
+    .search-container,
+    .hero-section .hero-overlay .btn-primary,
+    .oficio-toggle,
+    .back-to-top,
+    .btn-print,
+    .btn-print-footer,
+    .footer-col .btn-print-footer {
+        display: none !important;
+    }
+
+    /* Hero en impresión */
+    .hero-section {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .hero-banner {
+        max-height: none !important;
+        min-height: auto !important;
+    }
+    .hero-img {
+        display: none !important;
+    }
+    .hero-overlay {
+        position: relative !important;
+        background: #1a3c6e !important;
+        padding: 20px !important;
+        color: #fff !important;
+    }
+    .hero-content h2,
+    .hero-content .hero-subtitle,
+    .hero-content .hero-description,
+    .hero-content .stat-number,
+    .hero-content .stat-label {
+        color: #fff !important;
+    }
+    .hero-content h2 {
+        font-size: 20pt;
+    }
+    .hero-stats .stat-number {
+        color: #c9a84c !important;
+    }
+
+    /* Secciones */
+    section {
+        padding: 12px 0 !important;
+        page-break-inside: avoid;
+    }
+    .section-header h2 {
+        font-size: 16pt;
+        color: #1a3c6e !important;
+    }
+
+    /* Acordeón: forzar todos abiertos */
+    .oficio-body {
+        display: block !important;
+        border-top: 1px solid #ccc;
+        padding: 8px 0 !important;
+        animation: none !important;
+    }
+    .oficio-header {
+        cursor: default !important;
+        padding: 8px 0 !important;
+        border-bottom: 2px solid #1a3c6e;
+    }
+    .oficio-header .oficio-icon {
+        background: #1a3c6e !important;
+        color: #fff !important;
+    }
+    .oficio-card {
+        border: 1px solid #ccc !important;
+        border-radius: 4px !important;
+        margin-bottom: 12px !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+
+    .oficio-content .meta-grid {
+        background: #f5f5f5 !important;
+        border: 1px solid #ddd;
+    }
+    .oficio-content .objetivo {
+        background: #1a3c6e !important;
+        color: #fff !important;
+        border: 1px solid #1a3c6e;
+    }
+    .oficio-content .objetivo h4,
+    .oficio-content .objetivo p {
+        color: #fff !important;
+    }
+    .oficio-content .seccion h4 {
+        border-bottom-color: #c9a84c !important;
+    }
+    .oficio-content .requisitos-grid .req-col {
+        background: #f9f9f9 !important;
+        border: 1px solid #eee;
+    }
+
+    /* Organigrama */
+    .organigrama-img {
+        max-width: 80% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Footer en impresión */
+    .main-footer {
+        background: #0f2847 !important;
+        color: #fff !important;
+        padding: 16px !important;
+        margin-top: 24px !important;
+        border-top: 2px solid #c9a84c;
+    }
+    .main-footer * {
+        color: #fff !important;
+    }
+    .main-footer a {
+        color: #c9a84c !important;
+    }
+
+    /* Utilidades */
+    .no-print {
+        display: none !important;
+    }
+    .page-break {
+        page-break-before: always;
+    }
+}
